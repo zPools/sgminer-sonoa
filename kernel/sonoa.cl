@@ -45,6 +45,7 @@
 
 typedef unsigned int sph_u32;
 typedef int sph_s32;
+
 #ifndef __OPENCL_VERSION__
   typedef unsigned long long sph_u64;
   typedef long long sph_s64;
@@ -76,7 +77,11 @@ typedef int sph_s32;
 #define SPH_SMALL_FOOTPRINT_GROESTL 0
 #define SPH_GROESTL_BIG_ENDIAN 0
 #define SPH_CUBEHASH_UNROLL 0
-#define SPH_KECCAK_UNROLL   1
+
+#ifndef SPH_KECCAK_UNROLL
+  #define SPH_KECCAK_UNROLL 0
+#endif
+
 #ifndef SPH_HAMSI_EXPAND_BIG
   #define SPH_HAMSI_EXPAND_BIG 1
 #endif
